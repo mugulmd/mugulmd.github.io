@@ -30,3 +30,5 @@ One note though:
 I used chestnut honey, however the taste is a bit too strong in this context and tends to hide the other flavors.
 After all, the honey is only here for a pleasant sweet kick, nothing else.
 
+![result](/assets/chicken-satay-skewers-00.avif)
+
