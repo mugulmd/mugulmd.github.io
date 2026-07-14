@@ -1,0 +1,46 @@
+---
+layout: default
+---
+<style>
+  .moments-feed { max-width: 600px; margin: 0 auto; }
+  .moment-card { padding: 1.5rem 0; border-bottom: 1px solid #e5e5e5; }
+  .moment-card:last-child { border-bottom: none; }
+  .moment-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.9rem; }
+  .moment-avatar { width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0; }
+  .moment-author { font-weight: 600; }
+  .moment-handle { color: #888; }
+  .moment-date { color: #888; margin-left: auto; flex-shrink: 0; }
+  .moment-body { line-height: 1.7; }
+  .moment-body p:first-child { margin-top: 0; }
+  .moment-body p:last-child { margin-bottom: 0; }
+  .moment-body img { max-width: 100%; border-radius: 8px; margin: 0.75rem 0; }
+  .moment-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.75rem; }
+  .moment-tag { font-size: 0.78em; background: #f0f0f0; padding: 0.15rem 0.55rem; border-radius: 4px; color: #666; }
+</style>
+
+<div class="moments-feed">
+  <h1>moments</h1>
+  <p style="color: #888; margin-bottom: 2rem;">Not everything is worth a full blog post.</p>
+
+  {% assign moments = site.moments | sort: 'date' | reverse %}
+  {% for moment in moments %}
+    <div class="moment-card">
+      <div class="moment-header">
+        <img src="/assets/avatar.svg" alt="" class="moment-avatar" width="32" height="32">
+        <span class="moment-author">{{ site.author }}</span>
+        <span class="moment-handle">{{ site.author_handle }}</span>
+        <span class="moment-date">{{ moment.date | date: "%b %d, %Y" }}</span>
+      </div>
+      <div class="moment-body">
+        {{ moment.content }}
+      </div>
+      {% if moment.tags %}
+        <div class="moment-tags">
+          {% for tag in moment.tags %}
+            <span class="moment-tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
