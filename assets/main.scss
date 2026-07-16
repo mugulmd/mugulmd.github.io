@@ -1,0 +1,17 @@
+---
+---
+
+@font-face {
+  font-family: "Le Murmure";
+  src: url("fonts/lemurmure-regular.woff2") format("woff2"),
+       url("fonts/lemurmure-regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@import "minima";
+
+h1, h2 {
+  font-family: "Le Murmure", sans-serif;
+}
